@@ -1,14 +1,10 @@
 #include <iostream>
-#include "array.h"
+#include "CustomArray.h"
 
 using namespace std;
 
 int main() {
-    array a(10);
-    array b(11);
-    array c(11);
-    b[0] = 1;
-    a = b;
-
-    cout << a.size() << " " << int(a == b);
+    CustomArray<int> ca(10);
+   // CustomArray<int> array2(10);
+    //cout << int(array == array2) << " " << int(array != array2);
 }

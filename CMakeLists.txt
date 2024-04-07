@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(untitled main.cpp array.cpp array.h)
+add_executable(untitled main.cpp CustomArray.cpp CustomArray.h)
