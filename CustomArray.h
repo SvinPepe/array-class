@@ -6,6 +6,8 @@
 #define ARRAY_H
 
 
+#include <iterator>
+
 template<typename T>
 class CustomArray {
 private:
@@ -15,14 +17,16 @@ private:
 public:
     ~CustomArray() {delete[] _arr;}
     explicit CustomArray(int sz = DEFAULT_SIZE, const T* copyArray = nullptr);
-    CustomArray(CustomArray<T> const &copyArray);
+    CustomArray<T>(CustomArray &copyArray);
     int size();
     T max();
     T min();
     void sort();
     int find(T value);
+    T* begin() {return _arr;};
+    T* end() {return _arr + _size;};
     T &operator[](int index);
-   //void operator=(CustomArray<T> arr);
+    CustomArray<T>& operator=(CustomArray<T> arr);
     bool operator==(CustomArray<T> arr);
     bool operator!=(CustomArray<T> arr);
 };

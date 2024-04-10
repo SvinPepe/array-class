@@ -1,10 +1,15 @@
 #include <iostream>
-#include "CustomArray.h"
+#include "CustomArray.cpp"
 
 using namespace std;
 
 int main() {
-    CustomArray<int> ca(10);
-   // CustomArray<int> array2(10);
-    //cout << int(array == array2) << " " << int(array != array2);
+    CustomArray<int> array(100);
+    CustomArray<int> array2(10);
+    array2[0] = 1;
+    array = array2;
+    for (auto i: array) {
+        cout << i << " ";
+    }
+
 }

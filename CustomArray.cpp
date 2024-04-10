@@ -16,10 +16,12 @@ CustomArray<T>::CustomArray(int sz, const T *copyArray) {
 }
 
 template<typename T>
-CustomArray<T>::CustomArray(const CustomArray<T> &copyArray) {
+CustomArray<T>::CustomArray(CustomArray<T> &copyArray) {
     _size = copyArray._size;
     _arr = new T[_size];
-    std::copy(copyArray, copyArray + copyArray._size, _arr);
+    for (int i = 0; i < _size; i++) {
+        _arr[i] = copyArray[i];
+    }
 }
 
 template<typename T>
@@ -79,4 +81,15 @@ bool CustomArray<T>::operator!=(CustomArray arr) {
         if (_arr[i] != arr[i]) return true;
     }
     return false;
+}
+
+template<typename T>
+CustomArray<T>& CustomArray<T>::operator=(CustomArray<T> arr) {
+    delete[] _arr;
+    _size = arr.size();
+    _arr = new T[_size];
+    for (int i = 0; i < _size; i++) {
+        _arr[i] = arr[i];
+    }
+    return *this;
 }
