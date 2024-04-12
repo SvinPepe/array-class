@@ -10,7 +10,7 @@
 
 template<typename T>
 class CustomArray {
-private:
+protected:
     int _size;
     T *_arr;
     static const int DEFAULT_SIZE = 100;
@@ -25,6 +25,7 @@ public:
     int find(T value);
     T* begin() {return _arr;};
     T* end() {return _arr + _size;};
+
     T &operator[](int index);
     CustomArray<T>& operator=(CustomArray<T> arr);
     bool operator==(CustomArray<T> arr);

@@ -11,7 +11,9 @@ CustomArray<T>::CustomArray(int sz, const T *copyArray) {
     _size = sz;
     _arr = new T[_size];
     if (copyArray != nullptr) {
-        std::copy_n(copyArray, sz, _arr);
+        for (int i = 0; i < _size; i++) {
+            _arr[i] = copyArray[i];
+        }
     }
 }
 
